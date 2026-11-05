@@ -1,5 +1,5 @@
 platform(
-    name = "aarch64_xavier",
+    name = "aarch64",
     constraint_values = [
         "@platforms//cpu:aarch64",
         "@platforms//os:linux",
