@@ -1,0 +1,133 @@
+bazel_dep(name = "rules_python", version = "2.5.0-rc0")
+bazel_dep(name = "platforms", version = "1.0.0")
+bazel_dep(name = "googletest", version = "1.15.2")
+bazel_dep(name = "google_benchmark", version = "1.9.5")
+bazel_dep(name = "rules_cc", version = "0.2.22")
+bazel_dep(name = "bazel_skylib", version = "1.9.0")
+
+bazel_dep(name = "hedron_compile_commands", version = "0.0.0.iw.1", dev_dependency = True)
+
+python = use_extension("@rules_python//python/extensions:python.bzl", "python")
+python.toolchain(
+    configure_coverage_tool = True,
+    python_version = "3.12",
+)
+
+bazel_dep(name = "llvm", version = "0.8.26")
+
+register_toolchains("@llvm//toolchain:all")
+
+# level 0 non ros deps
+bazel_dep(name = "fast_cdr", version = "v2.2.5.iw.jazzy.1")
+local_path_override(
+    module_name = "fast_cdr",
+    path = "./repos/Fast-CDR",
+)
+
+bazel_dep(name = "com_github_mvukov_rules_ros2", version = "2.0.0.eddy.10")
+local_path_override(
+    module_name = "com_github_mvukov_rules_ros2",
+    path = "./repos/rules_ros2",
+)
+
+# level 1
+bazel_dep(name = "ros2_osrf_testing_tools_cpp", version = "2.0.0.iw.jazzy.1")
+local_path_override(
+    module_name = "ros2_osrf_testing_tools_cpp",
+    path = "./repos/osrf_testing_tools_cpp",
+)
+
+# level 2
+bazel_dep(name = "ros2_rcutils", version = "6.7.7.iw.jazzy.0")
+local_path_override(
+    module_name = "ros2_rcutils",
+    path = "./repos/rcutils",
+)
+
+# level 3
+bazel_dep(name = "ros2_rosidl", version = "4.6.10.iw.jazzy.0")
+local_path_override(
+    module_name = "ros2_rosidl",
+    path = "./repos/rosidl",
+)
+
+# level 4
+bazel_dep(name = "ros2_rmw", version = "7.3.4.iw.jazzy.0")
+local_path_override(
+    module_name = "ros2_rmw",
+    path = "./repos/rmw",
+)
+
+bazel_dep(name = "ros2_rcpputils", version = "2.11.4.iw.jazzy.0")
+local_path_override(
+    module_name = "ros2_rcpputils",
+    path = "./repos/rcpputils",
+)
+
+# level 5
+bazel_dep(name = "ros2_ament_index", version = "1.8.4.iw.jazzy.0")
+local_path_override(
+    module_name = "ros2_ament_index",
+    path = "./repos/ament_index",
+)
+
+bazel_dep(name = "ros2_rosidl_dynamic_typesupport", version = "0.1.2.iw.jazzy.0")
+local_path_override(
+    module_name = "ros2_rosidl_dynamic_typesupport",
+    path = "./repos/rosidl_dynamic_typesupport",
+)
+
+bazel_dep(name = "ros2_rosidl_typesupport_fastrtps", version = "3.6.4.iw.jazzy.1")
+local_path_override(
+    module_name = "ros2_rosidl_typesupport_fastrtps",
+    path = "./repos/rosidl_typesupport_fastrtps",
+)
+
+bazel_dep(name = "ros2_rosidl_typesupport", version = "3.2.3.iw.jazzy.0")
+local_path_override(
+    module_name = "ros2_rosidl_typesupport",
+    path = "./repos/rosidl_typesupport",
+)
+
+bazel_dep(name = "ros2_tracing", version = "8.2.6.iw.jazzy.0")
+local_path_override(
+    module_name = "ros2_tracing",
+    path = "./repos/ros2_tracing",
+)
+
+bazel_dep(name = "ros2_rmw_dds_common", version = "3.1.1.iw.jazzy.0")
+local_path_override(
+    module_name = "ros2_rmw_dds_common",
+    path = "./repos/rmw_dds_common",
+)
+
+bazel_dep(name = "ros2_rcl_logging", version = "3.1.1.iw.jazzy.0")
+local_path_override(
+    module_name = "ros2_rcl_logging",
+    path = "./repos/rcl_logging",
+)
+
+# level 6
+bazel_dep(name = "ros2_rosidl_runtime_py", version = "0.13.3.iw.jazzy.0")
+local_path_override(
+    module_name = "ros2_rosidl_runtime_py",
+    path = "./repos/rosidl_runtime_py",
+)
+
+bazel_dep(name = "ros2_resource_retriever", version = "3.4.4.iw.jazzy.0")
+local_path_override(
+    module_name = "ros2_resource_retriever",
+    path = "./repos/resource_retriever",
+)
+# local_path_override(
+#     module_name = "ros2_rcl",
+#     path = "./rcl",
+# )
+# bazel_dep(name = "ros2_demos", version = "0.33.9-1-gc70af81.iw.jazzy.1")
+# local_path_override(
+#     module_name = "ros2_demos",
+#     path = "./demos",
+# )
+
+# bazel_dep(name = "ros2_rclpy", version = "7.1.2-2-g159aedd.iw.jazzy.1")
+# bazel_dep(name = "ros2_common_interfaces", version = "5.3.5-2-g5283bd9.iw.jazzy.1")
