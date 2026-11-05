@@ -1,2 +1,3 @@
-common --registry=https://raw.githubusercontent.com/idealworks/bazel-public-registry/master
+# the bump branch cloned by setup.sh; master keeps the old (deprecated) version names
+common --registry=file://%workspace%/tmp/bazel-public-registry
 common --registry=https://raw.githubusercontent.com/bazelbuild/bazel-central-registry/main
